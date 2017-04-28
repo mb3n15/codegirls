@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <title>Library API</title>
+
+      <style type="text/css">
+      @import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+      @import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+      /**
+       * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+       * http://cssreset.com
+       */
+      html, body, div, span, applet, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, big, cite, code,
+      del, dfn, em, img, ins, kbd, q, s, samp,
+      small, strike, strong, sub, sup, tt, var,
+      b, u, i, center,
+      dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td,
+      article, aside, canvas, details, embed,
+      figure, figcaption, footer, header, hgroup,
+      menu, nav, output, ruby, section, summary,
+      time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+      /* HTML5 display-role reset for older browsers */
+      article, aside, details, figcaption, figure,
+      footer, header, hgroup, menu, nav, section {
+        display: block;
+      }
+      body {
+        line-height: 1;
+      }
+      ol, ul {
+        list-style: none;
+      }
+      blockquote, q {
+        quotes: none;
+      }
+      blockquote:before, blockquote:after,
+      q:before, q:after {
+        content: '';
+        content: none;
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+
+
+      * {
+      	  background-position: center;
+      	  background-size: cover;
+      	  text-align: center;
+            font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+      }
+
+      html body {
+      	width: 100%;
+      	height: 100%;
+      	min-width: 1280px;
+          font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+      }
+
+      .view {
+        display: flex;
+        padding: 80px 0;
+        height: 625px;
+        width: 100%;
+      }
+
+      .view header {
+      	color: white;
+        font-size: 55px;
+        margin: auto;
+        line-height: 72px;
+        font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+      }
+
+      #start {
+      	background-image: url(https://cdn.pixabay.com/photo/2010/12/13/10/31/book-2869_960_720.jpg);
+      }
+      #folks {
+      	background-image: url(https://cdn.pixabay.com/photo/2015/12/10/05/59/panda-bear-1086012_960_720.jpg);
+      }
+
+      .texture header {
+        font-size: 35px;
+        margin: 85px 0 90px;
+        font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+      }
+
+      .texture p {
+        margin: 50px 0 90px 0;
+        font-size: 22px;
+        line-height: 28px;
+        font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+      }
+
+      .texture ul {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .texture li {
+        flex-basis: 236px;
+      }
+
+      .texture img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 75px;
+        box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, .15);
+      	width:auto;
+      }
+
+      .texture .big img {
+        display: block;
+        margin: 0 auto;
+        border-radius: 75px;
+        box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, .15);
+      	width: 80%;
+      }
+
+      .texture #GetPublisher,#GetAuthor, #GetBook, #PostPublisher,#PostAuthor, #PostBook, #GetAuthorBook  {
+      	margin: 27px 0 3px 0;
+      	font-size: 27px;
+        font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+      	display:  inline-block;;
+        align-content: left;
+
+      }
+
+      .texture #GetPublisher h1, #GetAuthor h1, #GetBook h1, #PostPublisher h1,#PostAuthor h1, #PostBook h1, #GetAuthorBook h1 {
+      	text-align: left;
+      	margin: 27px 0 3px 0;
+      	color: #1f3b08;
+      	font-size: 37px;
+        font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+      }
+
+      .texture #GetPublisher p, #GetAuthor p, #GetBook p, #PostPublisher p,#PostAuthor p, #PostBook p, #GetAuthorBook p{
+      	text-align: left;
+      	margin: 27px 0 3px 0;
+      }
+
+      .texture th, td, tr {
+      	 padding: 0px 6px 5px 4px;
+         border: 1px solid black;
+       	 border-radius: 1px;
+      	 font-size: 20px;
+      }
+
+      .texture .example {
+      	display: block;
+      	margin: 1px 3px 0px 2px;
+      	padding: 13px 0 0px 0;
+       	width:70%;
+      	border-radius: 0px;
+      }
+
+      .texture .examplepost {
+      	display: block;
+      	margin: 1px 3px 0px 2px;
+      	padding: 13px 0 0px 0;
+       	width:60%;
+      	border-radius: 0px;
+      }
+
+      .mintline {
+        padding: 5px 0;
+        background: linear-gradient(to right, rgba(105,224,200,1) 0%, rgba(105,224,200,1) 43%, rgba(216,230,138,1) 100%);;
+      }
+
+      .greenline {
+        padding: 80px 0;
+        background: linear-gradient(to right, rgba(164,179,87,1) 0%, rgba(132,232,192,1) 100%);
+      }
+
+      .greenline h1 {
+        color: white;
+        font-size: 27px;
+        font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+      }
+      .form form {
+        color: green;
+        font-size: 27px;
+        font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+        max-width: 580px;
+        margin: 0 auto;
+      }
+      .form {
+        padding: 80px 0;
+        background: linear-gradient(to bottom, rgb(169,3,41) 0%,rgb(133,206,130) 0%,rgb(133,193,3) 44%,rgb(244,166,149) 100%);
+      }
+      .form h1 {
+        color: blue;
+        font-size: 37px;
+        font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+        max-width: 580px;
+        margin: 0 auto;
+        padding-bottom:20px;
+      }
+
+      .form form input {
+        width: 65%;
+        border: 1px solid #000;
+        height: 58px;
+        box-sizing: border-box;
+        padding-left: 30px;
+        margin-top: 30px;
+        -webkit-border-radius: 25px;
+        -moz-border-radius: 25px;
+        border-radius: 25px;
+        font-size: 18px;
+        align-items: flex-start;
+      }
+      .form form .submit {
+        font-size: 24px;
+        color: #fff;
+        border: none;
+        width: 40%;
+        margin-left: 1%;
+        background: #D30442;
+        height: 51px;
+        background-size: 100% 100%;
+        cursor: pointer;
+        align-content: center;
+      }
+
+      .greenline p {
+        color: white;
+        font-size: 23px;
+        font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+        margin-top: 8px;
+      }
+
+      </style>
+</head>
+
+<body>
+	<section class="view" id="start">
+		<header>
+				Welcome to Library REST API<br>Here is you start point</br>for endpoint browsing
+		</header>
+	</section>
+  <section class="texture">
+    <header>Library API documentation</header>
+    <ul>
+      <li class="big">
+        <img src="https://cdn.pixabay.com/photo/2015/02/16/08/02/maple-leaf-638022_960_720.jpg">
+        <p>
+         <p><a href="#GetBook">GET</a>, <a href="#PostBook">POST</a>, HEAD, OPTIONS, PATCH, PUT, DELETE on Books</p>
+        </p>
+      </li>
+      <li class="big">
+        <img src="https://cdn.pixabay.com/photo/2016/01/26/05/29/type-1161949_960_720.jpg">
+        <p><a href="#GetAuthor">GET</a>, <a href="#PostAuthor">POST</a>, HEAD, OPTIONS, PATCH, PUT, DELETE on Authors</p>
+      </li>
+      <li class="big">
+        <img src="https://cdn.pixabay.com/photo/2015/04/28/20/25/news-744308_960_720.jpg">
+        <p>
+          <p><a href="#GetPublisher">GET</a>, <a href="#PostPublisher">POST</a>, HEAD, OPTIONS, PATCH, PUT, DELETE on Publishers</p>
+        </p>
+      </li>
+      </ul>
+    </section>
+    <section class="greenline">
+      <h1>First let us look at the GET methods</h1>
+    </section>
+
+    <section class="texture">
+        <section id="GetPublisher">
+          <h1>GET /publishers</h1>
+          <p>This method is used to get<br> the list of publishers or particuliar <br>publisher in the Library</p>
+              <h1>Endpoint URI</h1>
+              <br>
+              <table>
+                <tr>
+                  <td>List</td>
+                  <td><a href="http://example.org/publishers" target="_blank">http://example.org/publishers</a></td>
+                </tr>
+                <tr>
+                  <td>Publisher</td>
+                  <td> <a href="#">http://example.org/publishers/{PublisherId}</a></td>
+                </tr>
+              </table>
+              <h1>Resource info</h1>
+              <br>
+              <table>
+                <tr>
+                  <td>Response formats</td>
+                  <td>XML</td>
+                </tr>
+                <tr>
+                  <td>Requires authentication?</td>
+                  <td>False</td>
+                </tr>
+              </table>
+          </section>
+          <section class="mintline"></section>
+          <section id="GetAuthor">
+            <h1>GET /authors</h1>
+            <p>This method is used to get<br> the list of authors or particuliar <br>author in the Library</p>
+                <h1>Endpoint URI</h1>
+                <br>
+                <table>
+                  <tr>
+                    <td>List</td>
+                    <td><a href="hhttp://example.org/authors" target="_blank">http://example.org/authors</a></td>
+                  </tr>
+                  <tr>
+                    <td>Author</td>
+                    <td> <a href="#">http://example.org/authors/{AuthorId}</a></td>
+                  </tr>
+                </table>
+                <h1>Resource info</h1>
+                <br>
+                <table>
+                  <tr>
+                    <td>Response format</td>
+                    <td>XML</td>
+                  </tr>
+                  <tr>
+                    <td>Requires authentication?</td>
+                    <td>False</td>
+                  </tr>
+                </table>
+
+              </section>
+              <section class="mintline"></section>
+              <section id="GetAuthorBook">
+                <h1>GET /authors/{AuthorId}/books</h1>
+                <p>This method is used to get<br> the list of books written by certain <br>author</p>
+                <h1>Endpoint URI</h1>
+                <br>
+                <table>
+                  <tr>
+                    <td>Author</td>
+                    <td> <a href="#">http://example.org/authors/{AuthorId}/books</a></td>
+                  </tr>
+                </table>
+                <h1>Resource info</h1>
+                <br>
+                <table>
+                  <tr>
+                    <td>Response format</td>
+                    <td>XML</td>
+                  </tr>
+                  <tr>
+                    <td>Requires authentication?</td>
+                    <td>False</td>
+                  </tr>
+                </table>
+
+              </section>
+              <section class="mintline"></section>
+              <section id="GetBook">
+                <h1>GET /books</h1>
+                <p>This method is used to get<br> the list of books or particuliar <br>book in the Library</p>
+                <h1>Endpoint URI</h1>
+                <br>
+                <table>
+                 <tr>
+                   <td>List</td>
+                   <td><a href="http://example.org/books" target="_blank">http://example.org/books</a></td>
+                 </tr>
+                 <tr>
+                   <td>Author</td>
+                   <td> <a href="#">http://example.org/books/{BookId}</a></td>
+                 </tr>
+               </table>
+               <h1>Resource info</h1>
+               <br>
+               <table>
+                 <tr>
+                   <td>Response format</td>
+                   <td>XML</td>
+                 </tr>
+                 <tr>
+                   <td>Requires authentication?</td>
+                   <td>False</td>
+                 </tr>
+               </table>
+
+         </section>
+    </section>
+    <section class="greenline">
+      <h1>Now let us look at the POST methods</h1>
+    </section>
+
+    <section class="texture">
+        <section id="PostPublisher">
+          <h1>POST /publishers</h1>
+          <p>This method is used to post<br> a new publisher record to the Library</p>
+              <h1>Endpoint URI</h1>
+              <br>
+              <table>
+                <tr>
+                  <td><a href="#">http://example.org/publishers/</a></td>
+                </tr>
+              </table>
+              <h1>Resource info</h1>
+              <br>
+              <table>
+                <tr>
+                  <td>Response format</td>
+                  <td>XML</td>
+                </tr>
+                <tr>
+                  <td>Requires authentication?</td>
+                  <td>True (authorization token)</td>
+                </tr>
+              </table>
+              <h1>Parameters</h1>
+              <br>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Type</th>
+                  <th>Required</th>
+                  <th>Max-length</th>
+                  <th>Read-only</th>
+                  <th>Example</th>
+                </tr>
+                <tr>
+                  <td>url</td>
+                  <td>field</td>
+                  <td>False</td>
+                  <td></td>
+                  <td>True</td>
+                  <td>http://example.org/publishers/403</td>
+                </tr>
+                <tr>
+                  <td>name</td>
+                  <td>string</td>
+                  <td>True</td>
+                  <td>255</td>
+                  <td>False</td>
+                  <td>Wordsworth Editions</td>
+                </tr>
+                <tr>
+                  <td>location</td>
+                  <td>string</td>
+                  <td>False</td>
+                  <td>255</td>
+                  <td>False</td>
+                  <td>UK</td>
+                </tr>
+                <tr>
+                  <td>owner</td>
+                  <td>field</td>
+                  <td>False</td>
+                  <td></td>
+                  <td>True</td>
+                  <td>mb3n15</td>
+                </tr>
+              </table>
+
+        </section>
+       <section class="mintline"></section>
+       <section id="PostAuthor">
+          <h1>POST /authors</h1>
+          <p>This method is used to post<br> a new author record to the Library</p>
+          <h1>Endpoint URI</h1>
+          <br>
+          <table>
+            <tr>
+              <td><a href="#">http://example.org/authors/</a></td>
+            </tr>
+          </table>
+          <h1>Resource info</h1>
+          <br>
+          <table>
+            <tr>
+              <td>Response format</td>
+              <td>XML</td>
+            </tr>
+            <tr>
+              <td>Requires authentication?</td>
+              <td>True (authorization token)</td>
+            </tr>
+          </table>
+          <h1>Parameters</h1>
+          <br>
+          <table>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Required</th>
+              <th>Max-length</th>
+              <th>Read-only</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td>url</td>
+              <td>field</td>
+              <td>False</td>
+              <td></td>
+              <td>True</td>
+              <td>http://example.org/authors/399</td>
+            </tr>
+            <tr>
+              <td>name</td>
+              <td>string</td>
+              <td>True</td>
+              <td>255</td>
+              <td>False</td>
+              <td>Karl Marx</td>
+            </tr>
+            <tr>
+              <td>booklist</td>
+              <td>field</td>
+              <td>False</td>
+              <td></td>
+              <td>True</td>
+              <td>http://example.org/399/books</td>
+            </tr>
+            <tr>
+              <td>owner</td>
+              <td>field</td>
+              <td>False</td>
+              <td></td>
+              <td>True</td>
+              <td>mb3n15</td>
+            </tr>
+          </table>
+
+        </section>
+        <section class="mintline"></section>
+        <section id="PostBook">
+           <h1>POST /books</h1>
+           <p>This method is used to post<br>a new book record to the Library</p>
+               <h1>Endpoint URI</h1>
+               <br>
+               <table>
+                 <tr>
+                   <td><a href="#">http://example.org/books/</a></td>
+                 </tr>
+               </table>
+               <h1>Resource info</h1>
+               <br>
+               <table>
+                 <tr>
+                   <td>Response format</td>
+                   <td>XML</td>
+                 </tr>
+                 <tr>
+                   <td>Requires authentication?</td>
+                   <td>True (authorization token)</td>
+                 </tr>
+               </table>
+               <h1>Parameters</h1>
+               <br>
+               <table>
+                 <tr>
+                   <th>Name</th>
+                   <th>Type</th>
+                   <th>Required</th>
+                   <th>Max-length</th>
+                   <th>Read-only</th>
+                   <th>Example</th>
+                 </tr>
+                 <tr>
+                   <td>url</td>
+                   <td>field</td>
+                   <td>False</td>
+                   <td></td>
+                   <td>True</td>
+                   <td>http://example.org/books/605</td>
+                 </tr>
+                 <tr>
+                   <td>title</td>
+                   <td>string</td>
+                   <td>True</td>
+                   <td>255</td>
+                   <td>False</td>
+                   <td>Capital</td>
+                 </tr>
+                 <tr>
+                   <td>pages</td>
+                   <td>integer</td>
+                   <td>True</td>
+                   <td>max-value:<br>2147483647</td>
+                   <td>False</td>
+                   <td>1168</td>
+                 </tr>
+                 <tr>
+                   <td>isbn13</td>
+                   <td>string</td>
+                   <td>True</td>
+                   <td>13</td>
+                   <td>False</td>
+                   <td>9781840226997</td>
+                 </tr>
+                 <tr>
+                   <td>date_published</td>
+                   <td>date</td>
+                   <td>True</td>
+                   <td></td>
+                   <td>False</td>
+                   <td>2013_05_05</td>
+                 </tr>
+                 <tr>
+                   <td>authors</td>
+                   <td>field</td>
+                   <td>True</td>
+                   <td></td>
+                   <td>False</td>
+                   <td>http://example.org/authors/3</td>
+                 </tr>
+                 <tr>
+                   <td>publishers</td>
+                   <td>field</td>
+                   <td>False</td>
+                   <td></td>
+                   <td>False</td>
+                   <td>http://example.org/publishers/403</td>
+                 </tr>
+                 <tr>
+                   <td>owner</td>
+                   <td>field</td>
+                   <td>False</td>
+                   <td></td>
+                   <td>True</td>
+                   <td>mb3n15</td>
+                 </tr>
+               </table>
+         </section>
+    </section>
+
+
+	<section class="greenline">
+		<h1>
+			All you need to know about our REST API
+		</h1>
+		<p>
+			The REST API provides free access to read and write library related data.
+		</p>
+	</section>
+
+  <section class="form">
+    <h1>Send us your question!</h1>
+    <form method="post" action="/contact">
+
+        <label class="tag" for="name">Name: </label>
+        <input type="text" id="name" name="name" value="" placeholder="Enter your name"
+        required="required" autofocus="autofocus"/>
+        </br>
+        <label class="tag" for="message">Message: </label>
+        <input type="text" id="message" name="message" value="" placeholder="Enter your message"
+        required="required"/>
+        </br>
+        <label class="tag" for="email">Email: </label>
+        <input type="Email" id="Email" name="Email" value="" placeholder="Enter your email"
+        required="required"/>
+        </br>
+        <input class="submit" type="submit" value="Submit" id="Submit"/>
+    </form>
+   </section>
+
+    <section class="greenline">
+	    <h1>NOW YOU ARE PREPARED FOR OUR LIBRARY API</h1>
+	    <p>Any feedback is welcome!</p>
+    </section>
+    <section class="view" id="folks">
+	    <header>That's all folks!</header>
+    </section>
+    <section class="greenline">
+	    <header>Images taken from free no-copyright stock <a href="http://www.pixabay.com" target="_blank">pixabay.com</a></header>
+    </section>
+</body>
+</html>

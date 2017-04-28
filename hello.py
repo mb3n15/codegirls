@@ -12,24 +12,23 @@ app=Flask("HelloApp1")
 @app.route("/")
 def hello():
 #    return "Hello Everyone!"
-    return render_template("hello.html")
+    return render_template("Library.html")
 
 @app.route("/404")
 def error_404():
 #    return "Hello Everyone!"
     return "you should not be here"
 
-@app.route("/aboutme")
-def aboutme():
+
+
+# @app.route("/<name>")
+# def hello_name(name):
+# #    return "Hello {0}!".format(name.title())
+#     return render_template("HI.html",name=name.title())
+@app.route("/team")
+def team():
 #    return "aboutme"
-    return render_template("aboutme.html")
-
-
-@app.route("/<name>")
-def hello_name(name):
-#    return "Hello {0}!".format(name.title())
-    return render_template("HI.html",name=name.title())
-
+    return render_template("team.html")
 
 @app.route("/contact", methods=['POST'])
 def contact():
@@ -43,8 +42,8 @@ def contact():
 
        print(name, message, email)
        #email message
-       subject="Hello from Maria"
-       body="I just wrote to say I welcome you!"
+       subject="Hello from Library API Team"
+       body="Reply to this email if you have any questions about API and follow the link to read more about our team!"
 
        sender='mb3n15@soton.ac.uk'
 
@@ -55,8 +54,9 @@ def contact():
            'from': sender,
            'to': email,
            'subject': subject,
-           'html':'<html><p><a style="color:orange;font-size:40px; background-color:green;" href="/aboutme">About me</a></p></html>'
+           'html':'<html><p style="color:beige;font-size:40px; background-color:coral;">Warm welcome!<br> We will answer all of your questions! <br>Meanwhile, have a look at our TEAM!</p></html>'
        })
+       return render_template("success.html")
 
        #checking email status
        print('Status:{0}'.format(email_request.status_code))

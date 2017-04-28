@@ -1,0 +1,194 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic);
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css);
+
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+* {
+	  background-position: center;
+	  background-size: cover;
+	  text-align: center;
+      font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+}
+
+html body {
+	width: 100%;
+	height: 100%;
+	min-width: 1280px;
+    font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+}
+
+.view {
+  display: flex;
+  padding: 80px 0;
+  height: 625px;
+  width: 100%;
+}
+
+.view header {
+	color: white;
+  font-size: 55px;
+  margin: auto;
+  line-height: 72px;
+  font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+}
+
+#start {
+	background-image: url(top.jpg);
+}
+#folks {
+	background-image: url(btm.jpg);
+}
+
+.texture header {
+  font-size: 35px;
+  margin: 85px 0 90px;
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+}
+
+.texture p {
+  margin: 50px 0 90px 0;
+  font-size: 22px;
+  line-height: 28px;
+  font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+}
+
+.texture ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+.texture li {
+  flex-basis: 236px;
+}
+
+.texture img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 75px;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, .15);
+	width:auto;
+}
+
+.texture .big img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 75px;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, .15);
+	width: 80%;
+}
+
+.texture #GetPublisher,#GetAuthor, #GetBook, #PostPublisher,#PostAuthor, #PostBook, #GetAuthorBook  {
+	margin: 27px 0 3px 0;
+	font-size: 27px;
+  font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+	display:  inline-block;;
+  align-content: left;
+
+}
+
+.texture #GetPublisher h1, #GetAuthor h1, #GetBook h1, #PostPublisher h1,#PostAuthor h1, #PostBook h1, #GetAuthorBook h1 {
+	text-align: left;
+	margin: 27px 0 3px 0;
+	color: #1f3b08;
+	font-size: 37px;
+  font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+}
+
+.texture #GetPublisher p, #GetAuthor p, #GetBook p, #PostPublisher p,#PostAuthor p, #PostBook p, #GetAuthorBook p{
+	text-align: left;
+	margin: 27px 0 3px 0;
+}
+
+.texture th, td, tr {
+	 padding: 0px 6px 5px 4px;
+   border: 1px solid black;
+ 	 border-radius: 1px;
+	 font-size: 20px;
+}
+
+.texture .example {
+	display: block;
+	margin: 1px 3px 0px 2px;
+	padding: 13px 0 0px 0;
+ 	width:70%;
+	border-radius: 0px;
+}
+
+.texture .examplepost {
+	display: block;
+	margin: 1px 3px 0px 2px;
+	padding: 13px 0 0px 0;
+ 	width:60%;
+	border-radius: 0px;
+}
+
+.mintline {
+  padding: 5px 0;
+  background: linear-gradient(to right, rgba(105,224,200,1) 0%, rgba(105,224,200,1) 43%, rgba(216,230,138,1) 100%);;
+}
+
+.greenline {
+  padding: 80px 0;
+  background: linear-gradient(to right, rgba(164,179,87,1) 0%, rgba(132,232,192,1) 100%);
+}
+
+.greenline h1 {
+  color: white;
+  font-size: 27px;
+  font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+}
+
+.greenline p {
+  color: white;
+  font-size: 23px;
+  font-family: 'PT Sans Caption', Helvetica, Arial, sans-serif;
+  margin-top: 8px;
+}
