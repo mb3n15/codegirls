@@ -54,7 +54,7 @@ def contact():
            'from': sender,
            'to': email,
            'subject': subject,
-           'html':'<html><p style="color:beige;font-size:40px; background-color:coral;">Warm welcome!<br> We will answer all of your questions! <br>Meanwhile, have a look at our <a href={{url_for('team')}}">TEAM!</a></p></html>'
+           'html':'<html><p style="color:beige;font-size:40px; background-color:coral;">Warm welcome!<br> We will answer all of your questions! <br>Meanwhile, have a look at our <a href="team">TEAM!</a></p></html>'
        })
        return render_template("success.html")
 
