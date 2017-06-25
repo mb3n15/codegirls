@@ -6,7 +6,6 @@
         "CategoryId": 10,
         "DepartmentId": 2,
         "PublishDate": "05.06.2017",
-
         "Keywords": "субсидии, субсидии на оплату коммунальных услуг, субсидии на оплату жилого помещения, семья, субсидия",
         "ContainsGeodata": false,
         "ContainsAccEnvData": false,
@@ -26,7 +25,6 @@
         "CategoryId": 12,
         "DepartmentId": 13,
         "PublishDate": "05.06.2017",
-
         "Keywords": "фестиваль, фестивальные мероприятия, мероприятие, московские фестивали, городские фестивали, московское лето",
         "ContainsGeodata": true,
         "ContainsAccEnvData": false,
