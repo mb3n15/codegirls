@@ -1,12 +1,13 @@
 [  
    {
-        "Id": 3162,
+       "Id": 3162,
         "VersionNumber": 1,
         "ReleaseNumber": 1,
         "Caption": "Количество семей, получающих субсидию в городе Москве, в различных разрезах",
         "CategoryId": 10,
         "DepartmentId": 2,
         "PublishDate": "05.06.2017",
+
         "Keywords": "субсидии, субсидии на оплату коммунальных услуг, субсидии на оплату жилого помещения, семья, субсидия",
         "ContainsGeodata": false,
         "ContainsAccEnvData": false,
@@ -18,25 +19,5 @@
         "LastUpdateDate": "05.06.2017",
         "SefUrl": "7701236617-kolichestvo-semey-poluchayushchih-subsidiyu-v-gorode-moskve",
         "IdentificationNumber": "7701236617-ReceivingSubsidiesStats"
-    },
-    {
-        "Id": 3163,
-        "VersionNumber": 1,
-        "ReleaseNumber": 1,
-        "Caption": "Места проведения фестиваля «Времена и эпохи. Собрание»",
-        "CategoryId": 12,
-        "DepartmentId": 13,
-        "PublishDate": "05.06.2017",
-        "Keywords": "фестиваль, фестивальные мероприятия, мероприятие, московские фестивали, городские фестивали, московское лето",
-        "ContainsGeodata": true,
-        "ContainsAccEnvData": false,
-        "IsForeign": false,
-        "IsSeasonal": false,
-        "Season": "0",
-        "IsArchive": false,
-        "IsNew": false,
-        "LastUpdateDate": "05.06.2017",
-        "SefUrl": "7710881420-mesta-provedeniya-festivalya-vremena-i-epohi-sobranie",
-        "IdentificationNumber": "7710881420-VremenaIEpohiSobranie"
     }
  ]
